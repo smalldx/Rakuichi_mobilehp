@@ -1,0 +1,58 @@
+<section class="system section" id="system">
+    <div class="container">
+        <h2 class="section-title">{{system_title}}</h2>
+
+        <div class="system-intro">
+            <p>{{system_intro}}</p>
+        </div>
+
+        <div class="system-principle">
+            <h3>基本原則</h3>
+            <div class="principle-flow">
+                <div class="flow-item">
+                    <div class="flow-symbol plus">+</div>
+                    <p>誰かに何かを<strong>してあげた人</strong>は、ポイントがプラス</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-item">
+                    <div class="flow-symbol minus">−</div>
+                    <p>誰かに何かを<strong>してもらった人</strong>は、ポイントがマイナス</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="system-limits">
+            <h3>上下リミットの意味</h3>
+            <div class="limits-grid">
+                <div class="limit-box">
+                    <h4>プラス上限：{{system_limit_plus_value}}</h4>
+                    <p class="limit-purpose">{{system_limit_plus_purpose}}</p>
+                    <p>{{system_limit_plus_text}}</p>
+                </div>
+
+                <div class="limit-box">
+                    <h4>マイナス下限：{{system_limit_minus_value}}</h4>
+                    <p class="limit-purpose">{{system_limit_minus_purpose}}</p>
+                    <p>{{system_limit_minus_text}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="system-ideal">
+            <h3>理想はゼロ付近</h3>
+            <div class="ideal-meter">
+                <div class="meter-line">
+                    <span class="meter-min">-30,000</span>
+                    <span class="meter-zero">0楽</span>
+                    <span class="meter-max">+30,000</span>
+                </div>
+                <div class="meter-bar">
+                    <div class="meter-indicator"></div>
+                </div>
+            </div>
+            <p class="ideal-description">
+                {{system_ideal}}
+            </p>
+        </div>
+    </div>
+</section>

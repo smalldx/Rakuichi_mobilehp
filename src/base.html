@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{meta_description}}">
+    <meta name="keywords" content="{{meta_keywords}}">
+
+    <!-- OGP Meta Tags -->
+    <meta property="og:title" content="{{meta_title}}">
+    <meta property="og:description" content="{{meta_description}}">
+    <meta property="og:type" content="website">
+
+    <title>{{meta_title}}</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav-brand">楽市</div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#philosophy" class="nav-link">思想</a></li>
+                <li><a href="#system" class="nav-link">仕組み</a></li>
+                <li><a href="#scenes" class="nav-link">利用シーン</a></li>
+                <li><a href="#examples" class="nav-link">具体例</a></li>
+                <li><a href="#join" class="nav-link cta-link">参加する</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {{content}}
+
+    <script src="script.js"></script>
+</body>
+
+</html>
