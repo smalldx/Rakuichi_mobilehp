@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{meta_description}}">
-    <meta name="keywords" content="{{meta_keywords}}">
+    <meta name="description" content="楽市 - 交換リングコミュニティ。お金ではなく、価値の循環を最大化する新しい経済圏を創造します。">
+    <meta name="keywords" content="楽市,交換リング,循環経済,価値交換,コミュニティ,楽ポイント">
 
     <!-- OGP Meta Tags -->
-    <meta property="og:title" content="{{meta_title}}">
-    <meta property="og:description" content="{{meta_description}}">
+    <meta property="og:title" content="楽市 - 新しい価値循環経済の創造">
+    <meta property="og:description" content="楽市 - 交換リングコミュニティ。お金ではなく、価値の循環を最大化する新しい経済圏を創造します。">
     <meta property="og:type" content="website">
 
-    <title>{{meta_title}}</title>
+    <title>楽市 - 新しい価値循環経済の創造</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,6 @@
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#philosophy" class="nav-link">思想</a></li>
                 <li><a href="#system" class="nav-link">仕組み</a></li>
                 <li><a href="#scenes" class="nav-link">利用シーン</a></li>
                 <li><a href="#examples" class="nav-link">具体例</a></li>
@@ -42,7 +41,51 @@
         </nav>
     </header>
 
-    {{content}}
+
+    <main>
+        {{content}}
+    </main>
+
+
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#hero" class="bottom-nav-item active">
+            <span class="nav-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+            </span>
+            <span class="nav-label">トップ</span>
+        </a>
+        <a href="#intro" class="bottom-nav-item">
+            <span class="nav-icon">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z" />
+                </svg>
+            </span>
+            <span class="nav-label">コンセプト</span>
+        </a>
+        <a href="#concept" class="bottom-nav-item">
+            <span class="nav-icon">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" />
+                </svg>
+            </span>
+            <span class="nav-label">楽市とは？</span>
+        </a>
+        <a href="#join" class="bottom-nav-item cta">
+            <span class="nav-icon">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+            </span>
+            <span class="nav-label">参加する</span>
+        </a>
+    </nav>
 
     <script src="script.js"></script>
 </body>

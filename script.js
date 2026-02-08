@@ -7,7 +7,7 @@ const navMenu = document.getElementById('nav-menu');
 if (navToggle) {
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-        
+
         // Animate hamburger icon
         const spans = navToggle.querySelectorAll('span');
         if (navMenu.classList.contains('active')) {
@@ -42,13 +42,13 @@ navLinks.forEach(link => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-        
+
         // Skip if href is just "#"
         if (href === '#') return;
-        
+
         e.preventDefault();
         const target = document.querySelector(href);
-        
+
         if (target) {
             const headerOffset = 80;
             const elementPosition = target.getBoundingClientRect().top;
@@ -70,14 +70,14 @@ let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     // Add shadow when scrolled
     if (currentScroll > 50) {
         header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
     } else {
         header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
     }
-    
+
     lastScroll = currentScroll;
 });
 
@@ -122,19 +122,30 @@ const sections = document.querySelectorAll('section[id]');
 
 function highlightNavigation() {
     const scrollY = window.pageYOffset;
-    
+
     sections.forEach(section => {
         const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
+        const sectionTop = section.offsetTop - 150; // Increased offset for better triggering
         const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
         
-        if (navLink && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLink.style.color = 'var(--primary)';
-            navLink.style.background = 'var(--bg-cream)';
-        } else if (navLink) {
-            navLink.style.color = '';
-            navLink.style.background = '';
+        // Target both desktop nav links and bottom nav items
+        const targetLinks = document.querySelectorAll(`.nav-link[href="#${sectionId}"], .bottom-nav-item[href="#${sectionId}"]`);
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            targetLinks.forEach(link => {
+                link.classList.add('active');
+                // Maintain legacy inline style behavior for desktop nav if valid, but class is better
+                if (link.classList.contains('nav-link')) {
+                    link.style.color = 'var(--primary)';
+                }
+            });
+        } else {
+            targetLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.classList.contains('nav-link')) {
+                    link.style.color = '';
+                }
+            });
         }
     });
 }
@@ -149,18 +160,165 @@ const meterIndicator = document.querySelector('.meter-indicator');
 if (meterIndicator) {
     let position = 50; // Start at center (0 points)
     let direction = 1;
-    
+
     setInterval(() => {
         position += direction * 0.5;
-        
+
         // Bounce back when reaching limits
         if (position >= 60 || position <= 40) {
             direction *= -1;
         }
-        
+
         meterIndicator.style.left = position + '%';
     }, 50);
 }
+
+// ===================================
+// Compact Balance Hero - Interactive Functions
+// ===================================
+
+let balanceCompact = 0; // -30000 to +30000
+
+// Update balance with smooth animation
+function updateBalanceCompact(newBalance) {
+    balanceCompact = Math.max(-30000, Math.min(30000, newBalance));
+
+    const indicator = document.getElementById('indicatorCompact');
+    const statusElement = document.getElementById('statusCompact');
+    const centerHighlight = document.getElementById('centerHighlight');
+    const centerLabel = document.getElementById('centerLabel');
+
+    if (!indicator || !statusElement) return;
+
+    // Calculate position (0% = left/benefit, 50% = center, 100% = right/contribution)
+    const percentage = ((balanceCompact + 30000) / 60000) * 100;
+    indicator.style.left = percentage + '%';
+
+    // Center glow when balanced
+    const isBalanced = Math.abs(balanceCompact) <= 3000;
+    if (centerHighlight) {
+        centerHighlight.classList.toggle('active', isBalanced);
+    }
+    if (centerLabel) {
+        centerLabel.style.transform = isBalanced ? 'scale(1.1)' : 'scale(1)';
+    }
+
+    // Update status message
+    let message = '中庸：最も巡りが良い状態です';
+    statusElement.className = 'bar-status-compact';
+
+    if (isBalanced) {
+        statusElement.classList.add('blessed');
+    } else if (balanceCompact < -5000) {
+        message = '御恩を多く受けています。次は奉公してみませんか？';
+    } else if (balanceCompact > 5000) {
+        message = '多くの徳を回しています。御恩を受け取ってみませんか？';
+    }
+
+    const statusText = statusElement.querySelector('.status-text');
+    if (statusText) {
+        statusText.style.opacity = '0';
+        setTimeout(() => {
+            statusText.textContent = message;
+            statusText.style.opacity = '1';
+        }, 200);
+    }
+}
+
+// Show toast notification
+function showToast(message, type = 'neutral') {
+    const container = document.getElementById('toastContainer');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+
+    container.appendChild(toast);
+
+    // Remove after animation
+    setTimeout(() => {
+        toast.remove();
+    }, 2000);
+}
+
+// Action: Benefit (receive help)
+function actionBenefit() {
+    const amount = Math.floor(Math.random() * 3000) + 2000; // 2000-5000
+    updateBalanceCompact(balanceCompact - amount);
+    showToast(`感謝を受け取りました`, 'benefit');
+}
+
+// Action: Contribution (give help)
+function actionContribution() {
+    const amount = Math.floor(Math.random() * 3000) + 2000; // 2000-5000
+    updateBalanceCompact(balanceCompact + amount);
+    showToast(`徳が回りました`, 'contribution');
+}
+
+// Action: Equilibrium (show suggestions)
+function actionEquilibrium() {
+    const modal = document.getElementById('modalCompact');
+    const suggestions = document.getElementById('suggestionsCompact');
+
+    if (!modal || !suggestions) return;
+
+    let content = '';
+
+    if (Math.abs(balanceCompact) <= 3000) {
+        content = `
+            <div class="suggestion-card">
+                <strong>✨ 素晴らしいバランスです</strong><br>
+                この調和を保ちながら、新しいご縁を探してみましょう。
+            </div>
+        `;
+    } else if (balanceCompact < -5000) {
+        content = `
+            <div class="suggestion-card">
+                <strong>🎁 次は奉公してみませんか？</strong><br>
+                あなたの得意なことで、誰かを助けてみましょう。
+            </div>
+            <div class="suggestion-card">
+                例：野菜を分ける、スキルを教える、手作り品を贈る
+            </div>
+        `;
+    } else if (balanceCompact > 5000) {
+        content = `
+            <div class="suggestion-card">
+                <strong>🙏 次は御恩を受けてみませんか？</strong><br>
+                誰かの助けを素直に受け取ってみましょう。
+            </div>
+            <div class="suggestion-card">
+                例：必要なものをリクエストする、教えてもらう、サービスを利用する
+            </div>
+        `;
+    }
+
+    suggestions.innerHTML = content;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close modal
+function closeModalCompact() {
+    const modal = document.getElementById('modalCompact');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    updateBalanceCompact(0);
+
+    // ESC key to close modal
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModalCompact();
+        }
+    });
+});
 
 // ===================================
 // Console Welcome Message
