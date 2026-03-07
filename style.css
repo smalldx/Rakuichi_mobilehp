@@ -439,6 +439,18 @@ p {
     /* 下の余白：ここの数値を変更してください */
 }
 
+#dilemma {
+    padding-bottom: 0;
+}
+
+#concept {
+    padding-bottom: 0;
+}
+
+#circulation {
+    padding-top: 0;
+}
+
 /* Long sections exception */
 .scenes,
 .system,
@@ -474,6 +486,10 @@ p {
     border: 1px solid rgba(255, 255, 255, 0.5);
     overflow: hidden;
     width: 100%;
+}
+
+.scenes .scene-card {
+    margin-bottom: var(--spacing-lg);
 }
 
 .comparison-image,
