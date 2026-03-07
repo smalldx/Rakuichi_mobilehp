@@ -1039,6 +1039,10 @@ p {
     object-fit: cover;
 }
 
+.examples-scene-card .scene-image img.osouzai-dinner-image {
+    object-position: center 35%;
+}
+
 .examples-scene-card .scene-overlay-text {
     position: absolute;
     bottom: 0;
