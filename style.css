@@ -538,6 +538,35 @@ p {
     margin: 0;
 }
 
+.scene-overlay-text .scene-keyword {
+    display: inline-block;
+    font-size: 1.25em;
+    line-height: 1.15;
+    letter-spacing: 0.08em;
+}
+
+.scene-overlay-emphasis {
+    line-height: 1.2;
+}
+
+.scene-overlay-emphasis .scene-keyword {
+    display: block;
+    font-size: 1.3em;
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.2em;
+    white-space: nowrap;
+}
+
+.scene-overlay-emphasis .scene-subtext {
+    display: block;
+    font-size: 0.9em;
+    line-height: 1.35;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
 .comparison-content,
 .scene-content,
 .example-content {
@@ -560,7 +589,7 @@ p {
 }
 
 .scene-story {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #555;
     margin-bottom: 1rem;
 }
@@ -593,11 +622,30 @@ p {
 }
 
 .scene-note {
-    font-size: 0.85rem;
-    color: #777;
-    border-top: 1px solid #eee;
-    padding-top: 0.8rem;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: #666;
+    border-top: 1px solid #e6e1da;
+    padding-top: 0.75rem;
     margin-top: 1rem;
+}
+
+.scene-overlay-emphasis {
+    flex-direction: column;
+    gap: 0;
+}
+
+.scene-keyword {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.scene-subtext {
+    font-size: 1.15rem;
+    font-weight: 500;
+    opacity: 0.9;
+    line-height: 1.2;
 }
 
 /* Stack comparison grid vertically */
