@@ -80,8 +80,6 @@ html {
     background: var(--bg-light);
     /* Assimilated Background */
     height: 100%;
-    /* Mobile Native: Vertical Snap */
-    scroll-snap-type: y proximity;
     overflow-y: scroll;
 }
 
@@ -408,8 +406,6 @@ p {
 /* Snap Targets */
 .hero,
 .footer {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
@@ -419,8 +415,6 @@ p {
 }
 
 .section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
     min-height: auto;
     /* Changed from 100dvh */
     padding: var(--spacing-md) 0;
@@ -953,6 +947,10 @@ p {
     margin-top: 1rem;
 }
 
+.line-inquiry-btn {
+    display: none;
+}
+
 /* ===================================
    Visual Polish
    =================================== */
@@ -1067,7 +1065,6 @@ p {
     border-radius: 16px;
     box-shadow: var(--shadow-md);
     overflow: hidden;
-    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     /* No flex-basis or width forcing here */
