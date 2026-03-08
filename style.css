@@ -81,6 +81,7 @@ html {
     /* Assimilated Background */
     height: 100%;
     overflow-y: scroll;
+    scroll-snap-type: none !important;
 }
 
 body {
@@ -94,6 +95,7 @@ body {
     margin: 0 auto;
     background-color: var(--bg-light);
     /* App Background */
+    scroll-snap-type: none !important;
 }
 
 img {
@@ -419,6 +421,14 @@ p {
     /* Changed from 100dvh */
     padding: var(--spacing-md) 0;
     border-bottom: none;
+}
+
+.hero,
+.footer,
+.section,
+.examples-scene-card {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
 }
 
 .intro-philosophy {
