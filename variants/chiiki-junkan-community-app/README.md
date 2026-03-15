@@ -1,4 +1,9 @@
-This directory is a working copy for the "地域循環コミュニティアプリ" homepage concept.
+This directory contains the public-ready static files for the "地域循環コミュニティアプリ" homepage variant.
 
-- Keep the root project as the current homepage.
-- Make concept-specific copy and layout changes only in this directory.
+Files used for publishing:
+- `index.html`
+- `style.css`
+- `script.js`
+- `assets/`
+
+This variant is intended to be served as a simple static site.
