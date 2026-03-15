@@ -6,4 +6,10 @@ Files used for publishing:
 - `script.js`
 - `assets/`
 
-This variant is intended to be served as a simple static site.
+Deploy options:
+- `Vercel`: set the project root to `variants/chiiki-junkan-community-app`
+- `GitHub Pages`: the workflow at `.github/workflows/deploy-community-variant.yml` deploys this directory
+
+Notes:
+- `.nojekyll` is included for GitHub Pages
+- all asset paths are relative, so the directory can be served as a plain static site

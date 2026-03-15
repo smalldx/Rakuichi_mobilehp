@@ -1324,7 +1324,6 @@ p {
 }
 
 /* Variant override: hide only the first two intro images */
-#intro .philosophy-block:nth-of-type(1) .philosophy-image,
-#intro .philosophy-block:nth-of-type(2) .philosophy-image {
+#intro .philosophy-block:nth-of-type(1) .philosophy-image {
     display: none !important;
 }
