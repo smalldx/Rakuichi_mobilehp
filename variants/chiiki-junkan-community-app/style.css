@@ -1,0 +1,1330 @@
+/* ===================================
+   CSS Variables & Reset
+   =================================== */
+:root {
+    /* Colors v2.0 - Refined Earth Tones */
+    --primary: #C17C4A;
+    --primary-light: #D4A574;
+    --primary-dark: #8B5A3C;
+
+    --secondary: #6B8E6F;
+    --secondary-light: #8FA98E;
+    --secondary-dark: #556B58;
+
+    --accent: #7A8A99;
+
+    --bg-light: #FAF7F2;
+    --bg-cream: #F5EFE6;
+    --bg-white: #FFFFFF;
+    --bg-dark: #2D2D2D;
+
+    /* App Shell Background (Outside the phone) */
+    --app-shell-bg: #222222;
+    --app-shell-gradient: radial-gradient(circle at center, #3a3a3a 0%, #111111 100%);
+
+    --text-dark: #2D2D2D;
+    --text-gray: #6B6B6B;
+    --text-light: #FAF7F2;
+
+    /* Spacing - Mobile Optimized */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 3.5rem;
+    --spacing-xxl: 5rem;
+    --spacing-xxxl: 6rem;
+
+    /* Safe Area Insets */
+    --safe-top: env(safe-area-inset-top, 20px);
+    --safe-bottom: env(safe-area-inset-bottom, 20px);
+
+    /* Dimensions */
+    --header-height: 60px;
+    --bottom-nav-height: 80px;
+    --app-max-width: 480px;
+    /* Mobile Only Constraint */
+
+    /* Typography */
+    --font-serif: 'Noto Serif JP', serif;
+    --font-sans: 'Noto Sans JP', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.75;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: var(--font-size-base);
+    background: var(--bg-light);
+    /* Assimilated Background */
+    height: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: none !important;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: var(--line-height-base);
+    color: var(--text-dark);
+    -webkit-font-smoothing: antialiased;
+
+    /* KEY CHANGE: Mobile App Constraint */
+    max-width: var(--app-max-width);
+    margin: 0 auto;
+    background-color: var(--bg-light);
+    /* App Background */
+    scroll-snap-type: none !important;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===================================
+   Phone Mockup Styles
+   =================================== */
+.phone-mockup-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    margin-bottom: 2rem;
+}
+
+.phone-mockup {
+    width: 300px;
+    height: 580px;
+    background: #fff;
+    /* Phone Bezel Color - using white/gray for modern look or black */
+    border: 12px solid #333;
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    font-family: var(--font-serif);
+}
+
+/* Screen Content */
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background-color: #FAF7F2;
+    /* Cream background */
+    overflow-y: hidden;
+    /* Static mockup */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.app-header {
+    height: 50px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.app-logo-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.app-header-icon {
+    width: 24px;
+    height: 24px;
+    background: #ff6b6b;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+}
+
+/* Main Card */
+.app-card {
+    margin: 15px;
+    background: #FFF8F0;
+    /* Slightly warmer inner card */
+    border-radius: 15px;
+    padding: 20px 10px;
+    text-align: center;
+    border: 1px solid #FFE4C4;
+}
+
+.app-card-title {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.app-balance-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: #888;
+    margin-bottom: 5px;
+    padding: 0 10px;
+}
+
+.center-label {
+    text-align: center;
+}
+
+.app-balance-bar {
+    height: 30px;
+    background: #eee;
+    border-radius: 15px;
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    overflow: hidden;
+}
+
+.bar-left {
+    width: 50%;
+    background: #badaff;
+}
+
+/* Light Blue */
+.bar-right {
+    width: 50%;
+    background: #ffdec2;
+}
+
+/* Light Orange */
+.bar-marker {
+    position: absolute;
+    left: 50%;
+    top: -5px;
+    transform: translateX(-50%);
+    color: #e64a19;
+    font-size: 1.2rem;
+}
+
+.app-card-msg {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* List */
+.app-list-title {
+    padding: 0 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.app-list-title .more {
+    font-size: 0.8rem;
+    color: #e64a19;
+}
+
+.app-list-item {
+    background: #FAF7F2;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.item-icon-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.gift-icon {
+    font-size: 1.5rem;
+    color: #2196F3;
+    /* Blue Icon */
+}
+
+.item-details {
+    flex: 1;
+    text-align: left;
+}
+
+.item-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.item-price {
+    font-size: 0.9rem;
+    color: #2196F3;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.item-user {
+    font-size: 0.7rem;
+    color: #888;
+}
+
+/* Bottom Nav */
+.app-bottom-nav {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #eee;
+    font-size: 0.6rem;
+    color: #555;
+}
+
+.nav-icon {
+    text-align: center;
+}
+
+.plus-btn {
+    width: 40px;
+    height: 40px;
+    background: #e64a19;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 2px;
+}
+
+.nav-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: #555;
+    margin-bottom: 2px;
+}
+
+.nav-icon.active {
+    color: #e64a19;
+}
+
+.nav-icon.active svg {
+    fill: #e64a19;
+}
+
+
+
+/* Fix: Hero image should not have padding */
+.hero img {
+    padding-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.bottom-nav-item:focus-visible {
+    outline: 2px solid var(--primary-dark);
+    outline-offset: 2px;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ===================================
+   Typography
+   =================================== */
+h1,
+h2,
+h3 {
+    font-family: var(--font-serif);
+    line-height: 1.4;
+    font-weight: 600;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* ===================================
+   Layout Logic (App Sections)
+   =================================== */
+/* Snap Targets */
+/* Snap Targets */
+.hero,
+.footer {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--spacing-md) 0;
+    border-bottom: none;
+}
+
+.section {
+    min-height: auto;
+    /* Changed from 100dvh */
+    padding: var(--spacing-md) 0;
+    border-bottom: none;
+}
+
+.hero,
+.footer,
+.section,
+.examples-scene-card {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+}
+
+.intro-philosophy {
+    padding-top: 30px !important;
+    /* Explicit request */
+}
+
+.intro-dilemma {
+    padding-top: 20px;
+    /* 上の余白：ここの数値を変更してください */
+    padding-bottom: 20px;
+    /* 下の余白：ここの数値を変更してください */
+}
+
+#dilemma {
+    padding-bottom: 0;
+}
+
+#concept {
+    padding-bottom: 0;
+}
+
+#circulation {
+    padding-top: 0;
+}
+
+/* Long sections exception */
+.scenes,
+.system,
+.intro-philosophy {
+    min-height: auto;
+    height: auto;
+    justify-content: flex-start;
+    padding-top: var(--spacing-md);
+}
+
+.container {
+    padding: 0 var(--spacing-md);
+    width: 100%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-dark);
+}
+
+/* ===================================
+   Components: Island Cards
+   =================================== */
+.comparison-card,
+.scene-card,
+.example-card,
+.role-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    width: 100%;
+}
+
+.scenes .scene-card {
+    margin-bottom: var(--spacing-lg);
+}
+
+.comparison-image,
+.scene-image,
+.example-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.comparison-image img,
+.scene-image img,
+.example-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding-bottom: 0;
+}
+
+.scene-overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    /* Low opacity black to show image */
+    color: #fff;
+    /* Reverted to White */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5rem;
+    /* Increased size */
+    font-weight: bold;
+    backdrop-filter: blur(0px);
+    /* Removed blur for clarity */
+    font-family: var(--font-serif);
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    /* Keep shadow for contrast */
+    margin: 0;
+}
+
+.scene-overlay-text .scene-keyword {
+    display: inline-block;
+    font-size: 1.25em;
+    line-height: 1.15;
+    letter-spacing: 0.08em;
+}
+
+.scene-overlay-emphasis {
+    line-height: 1.2;
+}
+
+.scene-overlay-emphasis .scene-keyword {
+    display: block;
+    font-size: 1.3em;
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.2em;
+    white-space: nowrap;
+}
+
+.scene-overlay-emphasis .scene-subtext {
+    display: block;
+    font-size: 0.9em;
+    line-height: 1.35;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+.comparison-content,
+.scene-content,
+.example-content {
+    padding: var(--spacing-md);
+}
+
+.comparison-title,
+.scene-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.scene-concept {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    font-family: var(--font-serif);
+    font-weight: 600;
+}
+
+.scene-story {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.scene-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.scene-list li {
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.scene-list strong {
+    color: var(--primary);
+}
+
+.point-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.scene-note {
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: #666;
+    border-top: 1px solid #e6e1da;
+    padding-top: 0.75rem;
+    margin-top: 1rem;
+}
+
+.scene-overlay-emphasis {
+    flex-direction: column;
+    gap: 0;
+}
+
+.scene-keyword {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.scene-subtext {
+    font-size: 1.15rem;
+    font-weight: 500;
+    opacity: 0.9;
+    line-height: 1.2;
+}
+
+/* Stack comparison grid vertically */
+.comparison-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* ===================================
+   Components: Philosophy Block
+   =================================== */
+.philosophy-block h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.philosophy-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.philosophy-image img {
+    /* max-width removed to match user request */
+    margin: 0 auto;
+}
+
+.philosophy-text p,
+.dilemma-intro p {
+    margin-bottom: 20px;
+    /* Empty line space between paragraphs */
+}
+
+.benefits-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.benefit-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(139, 90, 43, 0.14);
+    border-radius: 18px;
+    padding: 1.25rem;
+    box-shadow: 0 12px 28px rgba(90, 62, 43, 0.08);
+}
+
+.benefit-card h3 {
+    margin-bottom: 0.65rem;
+    font-family: var(--font-serif);
+    font-size: 1.08rem;
+    color: var(--text-dark);
+}
+
+.benefit-card p {
+    margin: 0;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* Space above subsequent blocks (e.g. above 'True Value') */
+.philosophy-block+.philosophy-block {
+    margin-top: var(--spacing-xl);
+}
+
+#about-rakuichi {
+    scroll-margin-top: 30px;
+}
+
+/* Mechanism Decoration */
+.mechanism-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-md) 0;
+}
+
+.mechanism-item {
+    background: rgba(255, 255, 255, 0.6);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: transform var(--transition-fast);
+}
+
+.mechanism-item:active {
+    transform: scale(0.98);
+}
+
+.mechanism-list {
+    padding-left: 0;
+    margin-bottom: var(--spacing-md);
+    list-style-type: none;
+}
+
+.mechanism-list li {
+    position: relative;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--primary);
+}
+
+.mechanism-list li strong {
+    display: block;
+    color: var(--primary);
+    margin-bottom: 4px;
+    font-size: 0.85rem;
+}
+
+.mechanism-badge {
+    min-width: 64px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: white;
+    letter-spacing: 0.1em;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.hoko .mechanism-badge {
+    background-color: var(--primary);
+    /* Hoko: Active Give */
+}
+
+.goon .mechanism-badge {
+    background-color: var(--secondary);
+    /* Goon: Harmonious Receive */
+}
+
+.mechanism-item p {
+    margin: 0 !important;
+    /* Reset paragraph margin inside items */
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ===================================
+   Component: Hero
+   =================================== */
+.hero {
+    position: relative;
+    padding: 0;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    width: 100%;
+    padding: 0 var(--spacing-md);
+}
+
+.hero-title {
+    font-size: 2.2rem;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-xl);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ===================================
+   Component: Bottom Nav (Glassmorphism)
+   =================================== */
+.bottom-nav {
+    position: fixed;
+    bottom: var(--safe-bottom);
+    /* Respect bottom safe area slightly */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Center horizontally */
+    width: calc(100% - var(--spacing-md));
+    max-width: calc(var(--app-max-width) - var(--spacing-md));
+    /* Constrain to app width */
+    height: 70px;
+
+    background: rgba(255, 255, 255, 0.85);
+    /* Frosty */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-radius: 35px;
+    /* Capsule */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1000;
+    margin-bottom: 10px;
+}
+
+.bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-gray);
+    flex: 1;
+    height: 100%;
+    font-size: 0.7rem;
+    cursor: pointer;
+    pointer-events: auto;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.bottom-nav-item:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.bottom-nav-item.active {
+    color: var(--primary);
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+.nav-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transition: all var(--transition-fast);
+}
+
+.bottom-nav-item.cta .nav-icon {
+    background: var(--primary);
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(193, 124, 74, 0.3);
+    margin-bottom: 0;
+}
+
+.bottom-nav-item.cta .nav-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Hide Old Header */
+.header {
+    display: none;
+}
+
+/* ===================================
+   Component: Buttons
+   =================================== */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    /* Pill shape */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: center;
+    width: 100%;
+    /* Full width mobile buttons */
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(193, 124, 74, 0.3);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.join-content {
+    text-align: center;
+}
+
+.join-intro {
+    margin-bottom: 2rem;
+}
+
+.join-note {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 1rem;
+}
+
+.join-cta .btn+.btn {
+    margin-top: 1rem;
+}
+
+.line-inquiry-btn {
+    display: inline-block;
+}
+
+/* ===================================
+   Visual Polish
+   =================================== */
+.intro-narrative {
+    background: transparent;
+}
+
+/* Adjust Footer to avoid Nav overlap */
+.footer {
+    padding-bottom: 140px;
+    text-align: center;
+    background: var(--bg-dark);
+    color: white;
+}
+
+/* ===================================
+   Comparison Table
+   =================================== */
+.comparison-table-wrapper {
+    margin-top: var(--spacing-lg);
+    width: 100%;
+    overflow-x: auto;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    background: white;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 14px 10px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.comparison-table thead tr {
+    background: var(--primary);
+    color: white;
+}
+
+.comparison-table th {
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.comparison-table th:first-child {
+    background: #5a5048;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.comparison-table tbody tr:nth-child(2) {
+    background: transparent;
+}
+
+.comparison-table td:first-child {
+    font-weight: 600;
+    background: #faf8f5;
+    color: var(--text-gray);
+}
+
+.comparison-table td:last-child {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* ===================================
+   Expanded Examples: Tabs & App Cards
+   =================================== */
+.example-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 8px 20px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    background: white;
+    color: var(--text-gray);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 0.9rem;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 4px 10px rgba(193, 124, 74, 0.2);
+}
+
+.example-tabs-bottom {
+    margin-top: 1.5rem;
+}
+
+
+.examples-grid-expanded {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* Reusing Scene Card Design but removing scroll constraints */
+.examples-scene-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* No flex-basis or width forcing here */
+    width: 100%;
+}
+
+.examples-scene-card .scene-image {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    /* Ensure image fills width */
+}
+
+.examples-scene-card .scene-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.examples-scene-card .scene-image img.osouzai-dinner-image {
+    object-position: center 35%;
+}
+
+.examples-scene-card .scene-overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0;
+    font-family: var(--font-serif);
+}
+
+.examples-scene-card .scene-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.examples-scene-card .scene-concept {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    font-family: var(--font-serif);
+}
+
+.examples-scene-card .scene-story {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+.examples-scene-card .scene-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #faf8f5;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.examples-scene-card .scene-list li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.examples-scene-card .scene-list strong {
+    color: var(--primary-dark);
+    display: block;
+    margin-bottom: 4px;
+}
+
+
+/* App Card Design - Matching Actual App UI */
+.app-card {
+    background: linear-gradient(135deg, #FDFAF6 0%, #F8F2EA 100%);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    animation: fadeIn 0.5s ease forwards;
+    border: 1px solid rgba(193, 124, 74, 0.1);
+}
+
+.app-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+.app-card-inner {
+    padding: 22px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Title — top, prominent, serif like the app */
+.app-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+/* User info row */
+.app-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.user-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.time-ago {
+    font-size: 0.75rem;
+    color: #aaa;
+}
+
+/* Description */
+.app-card-desc {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding-top: 12px;
+}
+
+/* Price block — large blue, matching app */
+.app-card-price-block {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.price-num {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #3A7BD5;
+    font-family: var(--font-sans);
+    letter-spacing: -0.5px;
+}
+
+.price-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #3A7BD5;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hidden state for filtering */
+.app-card.hidden {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+        scroll-snap-type: none;
+    }
+
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Variant override: hide only the first two intro images */
+#intro .philosophy-block:nth-of-type(1) .philosophy-image,
+#intro .philosophy-block:nth-of-type(2) .philosophy-image {
+    display: none !important;
+}
