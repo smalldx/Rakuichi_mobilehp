@@ -460,8 +460,12 @@ p {
 }
 
 #examples {
-    padding-top: 34px;
-    padding-bottom: 36px;
+    padding-top: 22px;
+    padding-bottom: 24px;
+}
+
+#examples .section-title {
+    margin-bottom: var(--spacing-md);
 }
 
 #community-value {
@@ -698,6 +702,14 @@ p {
     letter-spacing: 0.02em;
 }
 
+.value-message-topline {
+    font-size: 1.5rem;
+}
+
+.value-message-subline {
+    font-size: 1.5rem;
+}
+
 .philosophy-image {
     text-align: center;
     margin-bottom: 20px;
@@ -743,6 +755,11 @@ p {
     font-weight: 700;
     line-height: 1.45;
     color: var(--text-dark);
+}
+
+.detail-subtitle-wide {
+    font-size: 0.96rem;
+    white-space: nowrap;
 }
 
 .benefit-card p {
@@ -881,6 +898,10 @@ p {
     margin-bottom: var(--spacing-md);
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     line-height: 1.3;
+}
+
+.hero-title-topline {
+    font-size: 1.8rem;
 }
 
 .hero-subtitle {
