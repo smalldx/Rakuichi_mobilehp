@@ -891,6 +891,7 @@ p {
     color: white;
     width: 100%;
     padding: 0 var(--spacing-md);
+    transform: translateY(-5px);
 }
 
 .hero-title {
@@ -905,8 +906,8 @@ p {
 }
 
 .hero-subtitle {
-    font-size: 0.95rem;
-    margin-bottom: var(--spacing-xl);
+    font-size: 16px;
+    margin-bottom: var(--spacing-md);
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     line-height: 1.75;
 }
